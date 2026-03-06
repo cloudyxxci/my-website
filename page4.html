@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Aniv 🎂</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  padding:0;
+  background: linear-gradient(135deg, #ffe0f0, #c1e1ff);
+  font-family: 'Poppins', Arial, sans-serif;
+  overflow:auto;
+  text-align:center;
+  min-height:100vh;
+  position:relative;
+}
+
+/* Confetti */
+.confetti{
+  position:absolute;
+  width:10px;
+  height:10px;
+  background-color:red;
+  opacity:0.9;
+  pointer-events:none;
+  animation: fall linear infinite;
+}
+
+@keyframes fall{
+  0% { transform: translateY(-10px) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* Container for letter */
+.container{
+  max-width:90%;
+  margin:50px auto;
+  padding:30px;
+  border-radius:25px;
+  background: rgba(255,255,255,0.3);
+  border:5px solid white;
+  position:relative;
+  z-index:10;
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  overflow:auto;
+}
+
+/* Top-left image */
+.top-left-img{
+  width:300px; /* increased bigger */
+  border-radius:12px;
+  position:absolute;
+  top:-40px;
+  left:-40px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.top-left-img:hover{
+  transform: scale(1.05);
+  box-shadow:0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* Title */
+h1{
+  font-family: 'Pacifico', cursive;
+  font-size:36px;
+  margin-bottom:20px;
+  color:#ff4d4d;
+  width:100%;
+  text-align:center;
+}
+
+/* Birthday text */
+p{
+  font-size:18px;
+  line-height:1.6;
+  color:#333;
+  white-space:pre-wrap;
+  margin-top:30px;
+}
+
+/* Sparkles */
+.sparkle{
+  position:absolute;
+  font-size:15px;
+  color:#FFD700;
+  pointer-events:none;
+  animation: sparkleAnim 2s linear infinite;
+}
+
+@keyframes sparkleAnim{
+  0%{transform: translate(0,0) scale(1); opacity:1;}
+  50%{transform: translate(5px,-5px) scale(1.2); opacity:0.7;}
+  100%{transform: translate(0,0) scale(1); opacity:1;}
+}
+
+/* Floating hearts */
+.heart{
+  position:absolute;
+  font-size:25px;
+  animation: floatHeart 4s linear forwards;
+  pointer-events:none;
+}
+
+@keyframes floatHeart{
+  0%{transform: translateY(0) scale(1); opacity:1;}
+  100%{transform: translateY(-400px) scale(1.3); opacity:0;}
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .container{ flex-direction:column; align-items:center; padding:20px;}
+  .top-left-img{ width:220px; top:-20px; left:-20px;}
+}
+@media(max-width:500px){
+  p{ font-size:16px; }
+  .heart{ font-size:20px; }
+  .sparkle{ font-size:12px; }
+  .top-left-img{ width:180px; top:-15px; left:-15px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Birthday music -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2023/03/04/audio_1b6f1b7b1c.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <img class="top-left-img" src="https://tse1.mm.bing.net/th/id/OIP._d-nouLqWczeSF6Le5Ea3QHaFj?pid=Api&h=220&P=0" alt="Top Left Image">
+  <h1>Happy Birthday, Aniv! 🎉💖</h1>
+  <p>
+Happy Birthday, Aniv! 🎉  
+
+I know you probably wanted to forget me, and I’m sorry for texting you again. I just wanted to wish you an amazing birthday filled with joy, laughter, and, of course, lots of cake and love! 🍰💖  
+
+I hope your beloved ones have already made your day special, and that your exams went well. Inshallah, everything will continue to go smoothly for you, and that happiness, health, and success always follow you.  
+
+Dont worry, and I promise I’ll move on and respect your decision. But before moving on and forgetting you completely, I just dont want to miss the chance to wish you a happy birthday. Who knows what life holds,what if we die or something . you never know man.  
+
+May this year bring you new adventures, sweet memories, and everything your heart desires. May you find happiness in every moment, and may every challenge turn into an opportunity. I hope you always feel loved and appreciated, today and always.  
+
+So, happy birthday, Aniv! 🎂🎈 I genuinely wish you all the blessings, smiles, and joy in the world. Take care, enjoy your day, and have a fantastic birthday. bye 💫
+  </p>
+</div>
+
+<script>
+/* Floating sparkles randomly */
+function createSparkle(){
+  const sparkle = document.createElement("div");
+  sparkle.className = "sparkle";
+  sparkle.innerHTML="✨";
+  sparkle.style.left=Math.random()*window.innerWidth+"px";
+  sparkle.style.top=Math.random()*window.innerHeight+"px";
+  document.body.appendChild(sparkle);
+  setTimeout(()=>{ sparkle.remove(); },3000);
+}
+setInterval(createSparkle,500);
+
+/* Floating hearts randomly */
+function createHeart(){
+  const heart = document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="💖";
+  heart.style.left=Math.random()*window.innerWidth+"px";
+  heart.style.top=window.innerHeight+"px";
+  document.body.appendChild(heart);
+  setTimeout(()=>{ heart.remove(); },4000);
+}
+setInterval(createHeart,700);
+
+/* Confetti pieces */
+function createConfetti(){
+  const confetti = document.createElement("div");
+  confetti.className="confetti";
+  confetti.style.left=Math.random()*window.innerWidth+"px";
+  confetti.style.backgroundColor=`hsl(${Math.random()*360}, 70%, 60%)`;
+  confetti.style.width= (5 + Math.random()*10) + "px";
+  confetti.style.height= (5 + Math.random()*10) + "px";
+  confetti.style.animationDuration = (3 + Math.random()*2) + "s";
+  document.body.appendChild(confetti);
+  setTimeout(()=>{ confetti.remove(); },5000);
+}
+setInterval(createConfetti,200);
+</script>
+
+</body>
+</html>

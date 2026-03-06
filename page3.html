@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Open Your Letter ✉️</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  padding:0;
+  background:#ff4d4d; /* red background */
+  font-family:'Poppins', Arial, sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  text-align:center;
+  overflow:hidden;
+}
+
+/* Envelope container */
+.envelope{
+  position: relative;
+  width:250px;
+  max-width:80vw;
+  height:150px;
+  background:#ff1a1a;
+  border-radius:12px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.3);
+  cursor:pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Envelope flap */
+.envelope::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:0;
+  height:0;
+  border-left:125px solid transparent;
+  border-right:125px solid transparent;
+  border-bottom:75px solid #ff3333;
+  border-radius:12px;
+}
+
+/* Open Button on envelope */
+#open-btn{
+  position:absolute;
+  bottom:15px;
+  left:50%;
+  transform: translateX(-50%);
+  font-size:18px;
+  font-weight:bold;
+  padding:10px 25px;
+  color:white;
+  border:none;
+  border-radius:20px;
+  background: linear-gradient(135deg, #ff7b7b, #ff1a1a);
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#open-btn:hover{
+  transform: translateX(-50%) scale(1.1);
+  box-shadow:0 6px 15px rgba(0,0,0,0.4);
+}
+
+/* Envelope hover effect */
+.envelope:hover{
+  transform: scale(1.05);
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* Responsive */
+@media(max-width:500px){
+  .envelope{ width:180px; height:110px; }
+  .envelope::before{
+    border-left:90px solid transparent;
+    border-right:90px solid transparent;
+    border-bottom:55px solid #ff3333;
+  }
+  #open-btn{ font-size:16px; padding:8px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="envelope">
+  <button id="open-btn">OPEN</button>
+</div>
+
+<script>
+const openBtn = document.getElementById("open-btn");
+openBtn.addEventListener("click", ()=>{
+  // Navigate to page4.html
+  window.location.href = "page4.html";
+});
+</script>
+
+</body>
+</html>
